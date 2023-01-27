@@ -7,3 +7,10 @@
 ; Description: NPM dependencies work.
 ===========================================
 */
+body {
+  color: antiquewhite;
+  background-color: rgb(132, 96, 49);
+}
+/* #hero-image {
+  background-image: url(/public/images/pet-1.jpg);
+} */

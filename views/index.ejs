@@ -1,12 +1,3 @@
-/*
-===========================================
-e; Title: index.ejs
-; Author: Professor Krasso
-; Date: 01 25 2023
-; Modified by: Patrick Cuauro
-; Description: Landing page
-===========================================
-*/
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,16 +5,19 @@ e; Title: index.ejs
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!--Title of the page-->
+    <link rel="stylesheet" href="../styles/site.css" />
     <title>WEB 340 – NodeJS</title>
-    <link rel="stylesheet" href="../public/styles/site.css" />
 </head>
 
-<body class="light-theme">
+<body>
     <div id="container">
-        <!-- <i onclick="toggleMode(this)" id="icon-mode" class="fa fa-toggle-off pull-right" style="font-size: 28px"><span
-                id="icon-text"></span></i>
-        <br /> -->
+        <h1>Pet R Us</h1>
+        <h2>
+            <%= text %>
+        </h2>
+        <img src="/images/pet-1.jpg" width="430px" height="285px" alt="mini-doberman">
+        <br>
+        <a href="/grooming">Grooming</a>
     </div>
 </body>
 
