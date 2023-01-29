@@ -29,6 +29,21 @@ app.get("", (req, res)=> {
 app.get("/grooming", (req, res)=> {
     res.render("grooming", { text: "This is the Grooming page"})});
     
+app.get("/appointment", (req, res)=> {
+    res.render("appointment", { text: "Schedule your Appointment now!"})});
 
+app.get("/boarding", (req, res)=> {
+    res.render("boarding", { text: "It will be treated like a King/Queen here!"})});
+
+app.get("/customer", (req, res)=> {
+    res.render("customer", { text: "List of customers"})});
+
+app.get("/training", (req, res)=> {
+    res.render("training", { text: "It best serves the treat"})});
+
+app.get("/registration", (req, res)=> {
+    res.render("registration", { text: "Become part of the family"})});
+    
+    
     // Listen on Port 3000
 app.listen( port,()=> console.info(`Listening on port ${port}`))

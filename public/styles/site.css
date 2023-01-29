@@ -14,3 +14,46 @@ body {
 /* #hero-image {
   background-image: url(/public/images/pet-1.jpg);
 } */
+a {
+  text-decoration: none;
+}
+a:hover {
+  color: blueviolet;
+}
+li {
+  text-align: left;
+}
+/*copied from w3schools*/
+.item1 {
+  grid-area: header;
+}
+.item2 {
+  grid-area: menu;
+}
+.item3 {
+  grid-area: main;
+}
+.item4 {
+  grid-area: right;
+}
+.item5 {
+  grid-area: footer;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    "header header header header header header"
+    "menu main main main right right"
+    "menu footer footer footer footer footer";
+  gap: 10px;
+  background-color: #383913;
+  padding: 10px;
+}
+
+.grid-container > div {
+  background-color: rgba(186, 12, 12, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
