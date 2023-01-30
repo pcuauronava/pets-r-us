@@ -5,24 +5,64 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Solitreo&display=swap" rel="stylesheet">
     <title>WEB 340 – NodeJS</title>
     <link rel="stylesheet" href="../styles/site.css" />
 </head>
-<header>
-    Pet-R-Us
-</header>
 
 <body>
     <div id="container">
-        <h1>Grooming</h1>
-        <h2>
-            <%= text %>
-        </h2>
-        <a href=".">Home</a>
+        <div id="a" class="grid-container">
+            <div class="item1">
+                <h1>Grooming services</h1>
+            </div>
+            <div class="item2">
+                <nav>
+                    <h2>Menu</h2>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/appointment">Appointments</a></li>
+                        <li><a href="/boarding">Boarding</a></li>
+                        <li><a href="/customer">Customer List</a></li>
+                        <li><a href="/training">Training</a></li>
+                        <li><a href="/registration">Registration</a></li>
+                    </ul>
+                </nav>
+
+            </div>
+            <div class="item3">
+                <ol>
+                    <li>
+                        <h3>1. Basic dog grooming package: $40-60</h3>
+                        <p>Includes a bath, brush, trim and file nails, ear cleaning, and a basic haircut.</p>
+                    </li>
+                    <li>
+                        <h3>2. Deluxe dog grooming package: $70-90</h3>
+                        <p>Includes the basic package, plus a more detailed haircut treatment.</p>
+                    </li>
+                    <li>
+                        <h3>3. Cat grooming package: $50-70</h3>
+                        <p>Includes a bath, brush, trim and file nails, ear cleaning, and a lion cut.</p>
+                    </li>
+                    <li>
+                        <h3>4. Premium dog grooming package: $100-120</h3>
+                        <p>Includes the deluxe package, plus specialized treatments such as a flea and tick treatment or
+                            a
+                            de-shedding treatment, and a more complicated haircut.</p>
+                    </li>
+                </ol>
+            </div>
+            <div class="item4">
+            </div>
+            <div class="item5">
+            </div>
+        </div>
     </div>
+    <footer>
+        copyright 2023
+    </footer>
 </body>
-<footer>
-    copyright 2023
-</footer>
 
 </html>
