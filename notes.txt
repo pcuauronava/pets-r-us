@@ -1,0 +1,19 @@
+web340 project Pet r US
+installed express-ejs-layouts
+pages completed:
+- grooming with the header and footer in the html part
+grid with the divs as sections
+div class item 1 as the section 1, etc
+remember the set configuration for the express layouts should be called layout in singural not in plural,
+it took me a while find this out because in the example the name of the folder is layouts and not layout
+now be careful with the typing, even a separation can change the layout, for example when saved the file full-width.ejs
+I did not separated the include from the dash after the porcentage sign and vs code took it the double point to be separated
+from the dash (/) which is funny, vs code does not undertand the templating in html
+next I removed all the information from the index page to avoid having double headers and footers and included only what was about
+inside the body and added a title on the head section of the template
+but the styling was lost so I had to include it on the template
+I had to change the filenames of the header and footer files and move them to the upper folder
+that also means I have to change the link to them
+the example given by Raddy on this video helped me a lot: https://www.youtube.com/watch?v=lYVKbAn5Od0&t=2s
+the only suggestion would be to make sure you make the difference of the setting with the location of the layouts in the app
+an small script was included in the header partial views (remember the _templatefilename enforced best practice) giving the actual year

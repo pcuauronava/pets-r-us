@@ -10,6 +10,8 @@
 //Imports
 const express = require("express");
 const app = express();
+// 1.- insert the new installed module express-ejs-layouts by clicking npm install express-ejs-layouts
+const expressLayouts = require("express-ejs-layouts");
 const port = 3000;
 
 //Static files
@@ -20,11 +22,17 @@ app.use("/styles/css",express.static(__dirname + "/public/styles/css"));
 // app.use("/images",express.static(__dirname + "images"));
 
 //Set views
-app.set("views","./views")
-app.set("view engine","ejs")
+// 2.- Set template engine
+app.use(expressLayouts);
+
+//5.- renamed layout.ejs to basic-template.ejs and moved to the folder layouts
+app.set("layout","./layouts/basic-template")
+// 4.- commented this. app.set("views","./views");
+app.set("view engine","ejs");
 
 app.get("", (req, res)=> {
-    res.render("index", { text: "Patrick is testing this landing page"})});
+    res.render("index");
+    // 3.- modified this: to the above example res.render("index", { text: "Patrick is testing this landing page"})});
 
 app.get("/grooming", (req, res)=> {
     res.render("grooming", { text: "This is the Grooming page"})});
@@ -42,7 +50,8 @@ app.get("/training", (req, res)=> {
     res.render("training", { text: "It best serves the treat"})});
 
 app.get("/registration", (req, res)=> {
-    res.render("registration", { text: "Become part of the family"})});
+     res.render("registration", { text: "Become part of the family"})});
+});
     
     
     // Listen on Port 3000

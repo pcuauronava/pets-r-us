@@ -1,38 +1,71 @@
 <!--
     ==============================================
-    ;   Title: appointment
+    ;   Title: appointment.ejs
     ;   Author: Patrick Cuauro
     ;   Date: 01 27 2023
     ;   Modified by: Patrick Cuauro
     ;   Description: Sub page from Pet-R-Us
     ==============================================
     -->
-<!DOCTYPE html>
-<html lang="en">
+<div id="container">
+    <div id="a" class="grid-container">
+        <div class="item1">
+            <h1>Appointments now Available</h1>
+        </div>
+        <div class="item2">
+            <nav>
+                <h2>Menu</h2>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/grooming">Grooming</a></li>
+                    <li><a href="/training">Training</a></li>
+                    <li><a href="/boarding">Boarding</a></li>
+                    <li><a href="/customer">Customer List</a></li>
+                    <li><a href="/registration">Registration</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="item3">
+            <div class="form">
+                <!-- this div was divided in two to help readability otherwise the names will be misaligned -->
+                <!-- remember to verify the css file -->
+                <div class="titles">
+                    <label for="pet-owner-name">Introduce the owners name:</label>
+                    <br>
+                    <label for="pet-kind">Select your kind of pet:</label>
+                    <br>
+                    <label for="pet-name">Introduce the pet's name:</label>
+                    <br>
+                    <label for="appointment-time">Select the date and time:</label>
+                    <br>
+                    <label for="service-selection">Select the service needed:</label>
+                </div>
+                <div class="selections">
+                    <input type="text" name="pet-owner-name" id="pet-owner-name">
+                    <br>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Solitreo&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../styles/site.css" />
-    <title>Appointment Page</title>
-</head>
 
-<body>
-    <h1>Under construction</h1>
-    <h2>
-        <%= text %>
-    </h2>
-    <a href="../">Home</a>
-    <br>
-    <img width="1024px" src="/images/under-construction-full-size.jpg">
-    <footer>
-        copyright 2023
-    </footer>
-</body>
-
-
-</html>
+                    <select type="dropdown-menu" name="pet-kind-selection">
+                        <option value="dog">Dog</option>
+                        <option value="cat">Cat</option>
+                    </select>
+                    <br>
+                    <input type="text" name="pet-name" id="pet-name">
+                    <br>
+                    <input type="datetime-local" name="appointment-time" id="appointment-time">
+                    <br>
+                    <select type="dropdown-menu" name="service-selection">
+                        <option value="grooming">Grooming</option>
+                        <option value="training">Training</option>
+                    </select>
+                </div>
+                <button class="btn" id="appointment-check">Submit</button>
+            </div>
+        </div>
+        <div class="item4">
+            <img src="/images/appointment-medium.jpg" width="500" height="500" alt="appointment-pic">
+        </div>
+        <div class="item5">
+        </div>
+    </div>
+</div>

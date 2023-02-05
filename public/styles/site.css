@@ -69,3 +69,23 @@ li {
   padding: 2px 0;
   /* font-size: 30px; */
 }
+.wrapper {
+  background-color: rgb(186 12 12 / 80%);
+}
+.form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 10px;
+  text-align: justify;
+}
+.form .titles {
+  padding: 10px;
+  text-align: right;
+}
+.form .selections {
+  padding: 10px;
+}
+.btn {
+  text-align: center;
+  border-style: solid 3px;
+}
