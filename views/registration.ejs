@@ -22,16 +22,63 @@
 </head>
 
 <body>
-    <h1>Under construction</h1>
-    <h2>
+    <div id="a" class="grid-container">
+        <div class="item1">
+            <h1>Register to get a helping hand for your Pet</h1>
+        </div>
+        <div class="item2">
+            <nav>
+                <h2>Menu</h2>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/grooming">Grooming</a></li>
+                    <li><a href="/appointment">Appointments</a></li>
+                    <li><a href="/boarding">Boarding</a></li>
+                    <li><a href="/customer">Customer List</a></li>
+                    <li><a href="/registration">Registration</a></li>
+                </ul>
+            </nav>
+
+        </div>
+        <div class="item3">
+            <div class="form">
+                <div class="titles">
+                    <label for="customerName">Customer Name:</label>
+                    <br>
+                    <label for="customerName">Customer Last Name:</label>
+                    <br>
+                    <label for="customerName">Customer Pet's Name:</label>
+                    <br>
+                    <label for="customerName">Customer email:</label>
+                </div>
+                <div class="selections">
+                    <input type="text" class="input" id="customerName" name="customerName" />
+                    <br>
+                    <input type="text" class="input" id="customerLastName" name="customerLastName" />
+                    <br>
+                    <input type="text" class="input" id="customerPetName" name="customerPetName" />
+                    <!-- this is going to be the customer id mixing the three first letters of the last
+                    name and the four letters of the pets name -->
+                    <br>
+                    <input type="text" class="input" id="customerEmail" name="customerEmail" />
+                </div>
+                <button class="btn" id="registerBtn">Submit</button>
+            </div>
+            <div class="form-field">
+            </div>
+        </div>
+        <div class="item4"><img src="/images/registration-icon-small.png" width="250" height="250"
+                alt="appointment-pic">
+        </div>
+        <div class="item5"> <span>item5</span> </div>
+        <!-- <h2>
         <%= text %>
-    </h2>
-    <a href="../">Home</a>
-    <br>
-    <img width="1024px" src="/images/under-construction-full-size.jpg">
-    <footer>
-        copyright 2023
-    </footer>
+    </h2> -->
+        <!-- <a href="../">Home</a> -->
+        <!-- <br> -->
+        <!-- <footer>
+            copyright 2023
+        </footer> -->
 </body>
 
 

@@ -9,10 +9,30 @@
 */
 //Imports
 const express = require("express");
+
+const mongoose = require("mongoose");
+
 const app = express();
+//this line contains the link to the database using the username and password
+const CONN = "mongodb+srv://web340_admin:Pres.1811@bellevueuniversity.5jww2it.mongodb.net/test";
+
+
+
 // 1.- insert the new installed module express-ejs-layouts by clicking npm install express-ejs-layouts
 const expressLayouts = require("express-ejs-layouts");
-const port = 3000;
+
+//the next line defines the port as 3000
+const PORT = process.env.PORT || 3000;
+// const port = process.env.port || 3000;
+
+// const port = 3000;
+
+//the next lines were added to verify the connection to the database in mongodb was successful
+mongoose.connect(CONN).then(() =>{
+    console.log("Connection to MongoDB database was successful\n If you see this message you were able to connect to your MongoDB Atlas cluster");
+}).catch(err => {
+    console.log("MongoDB Error: " + err.message);
+});
 
 //Static files
 //This lines configure the entry point to the folder to 
@@ -55,4 +75,9 @@ app.get("/registration", (req, res)=> {
     
     
     // Listen on Port 3000
-app.listen( port,()=> console.info(`Listening on port ${port}`))
+//the next line was included to display the port listening for the app
+    app.listen(PORT, () => {
+        console.log('Application started and listening on PORT: ' + PORT);
+    
+        console.log('\n  Press Ctrl+C to stop the server...');
+// app.listen( PORT,()=> console.info(`Listening on port ${PORT}`));
