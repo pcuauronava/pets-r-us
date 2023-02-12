@@ -41,29 +41,25 @@
 
         </div>
         <div class="item3">
-            <div class="form">
-                <div class="titles">
-                    <label for="customerName">Customer Name:</label>
-                    <br>
-                    <label for="customerName">Customer Last Name:</label>
-                    <br>
-                    <label for="customerName">Customer Pet's Name:</label>
-                    <br>
-                    <label for="customerName">Customer email:</label>
-                </div>
-                <div class="selections">
-                    <input type="text" class="input" id="customerName" name="customerName" />
-                    <br>
-                    <input type="text" class="input" id="customerLastName" name="customerLastName" />
-                    <br>
-                    <input type="text" class="input" id="customerPetName" name="customerPetName" />
-                    <!-- this is going to be the customer id mixing the three first letters of the last
+            <!-- <div class="form"> -->
+            <form action="/registration" method="post">
+                <label for="customerName">Customer Name:</label>
+                <input type="text" class="input" id="customerName" name="customerName" required autofocus />
+                <br>
+                <label for="customerLastName">Customer Last Name:</label>
+                <input type="text" class="input" id="customerLastName" name="customerLastName" required autofocus />
+                <br>
+                <label for="customersPetName">Customer Pet's Name:</label>
+                <input type="text" class="input" id="customerEmail" name="customerEmail" required autofocus />
+                <br>
+                <label for="customerEmail">Customer email:</label>
+                <input type="text" class="input" id="customerPetName" name="customerPetName" required autofocus />
+                <br>
+                <!-- this is going to be the customer id mixing the three first letters of the last
                     name and the four letters of the pets name -->
-                    <br>
-                    <input type="text" class="input" id="customerEmail" name="customerEmail" />
-                </div>
-                <button class="btn" id="registerBtn">Submit</button>
-            </div>
+                <button class="btn btn-primary full-width" id="registerBtn" value="Register Customer">Register</button>
+            </form>
+            <!-- </div> -->
             <div class="form-field">
             </div>
         </div>

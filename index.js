@@ -9,12 +9,14 @@
 */
 //Imports
 const express = require("express");
-
+const path = require("path");
 const mongoose = require("mongoose");
+
+const customer = require("./models/customer");
 
 const app = express();
 //this line contains the link to the database using the username and password
-const CONN = "mongodb+srv://web340_admin:Pres.1811@bellevueuniversity.5jww2it.mongodb.net/test";
+const CONN = "mongodb+srv://web340_admin:aslanwebdev@bellevueuniversity.5jww2it.mongodb.net/test";
 
 
 
@@ -51,7 +53,7 @@ app.set("layout","./layouts/basic-template")
 app.set("view engine","ejs");
 
 app.get("", (req, res)=> {
-    res.render("index");
+    res.render("index");});
     // 3.- modified this: to the above example res.render("index", { text: "Patrick is testing this landing page"})});
 
 app.get("/grooming", (req, res)=> {
@@ -71,13 +73,40 @@ app.get("/training", (req, res)=> {
 
 app.get("/registration", (req, res)=> {
      res.render("registration", { text: "Become part of the family"})});
-});
+
+app.get("/registration-create", (req, res) => {
+        res.render("customer-create",
+         {
+            title: "Customer Form",
+            pageTitle: "Register New User"
+        });
+    });
     
+    app.post('/customers', (req, res, next) => {
+        console.log(req.body);
+        console.log(req.body.userName);
+        const newCustomer = new Customers({
+            name: req.body.userName
+        });
+    
+        console.log(newCustomer);
+    
+        Fruit.create(newFruit, function(err, fruit) {
+            if (err) {
+                console.log(err);
+                next(err);
+            } else {
+                res.render('index', {
+                    title: 'FMS: Landing'
+                })
+            }
+        })
+    })
     
     // Listen on Port 3000
 //the next line was included to display the port listening for the app
     app.listen(PORT, () => {
         console.log('Application started and listening on PORT: ' + PORT);
     
-        console.log('\n  Press Ctrl+C to stop the server...');
+        console.log('\n  Press Ctrl+C to stop the server...');});
 // app.listen( PORT,()=> console.info(`Listening on port ${PORT}`));

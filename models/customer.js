@@ -1,12 +1,14 @@
 //inserted based on the example of the WEB340 repository mongoose model
 
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-
-
-let customerSchema = new mongoose.Schema({
-    customerId: {type: string, required: true, unique: true}
-    email: {type: string, required:true, unique:true}
+let customerSchema = new Schema({
+    customerId: { type: String, required: true, unique: true},
+    customerName: {type: String},
+    customerLastName: {type: String, required: true, unique: true},
+    customerPetName: {type: String, required: true, unique: true},
+    customerEmail: {type: String, required:true, unique:true}
  });
 
  module.exports = mongoose.model('Customer', customerSchema);
