@@ -4,11 +4,11 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 let customerSchema = new Schema({
-    customerId: { type: String, required: true, unique: true},
-    customerName: {type: String},
-    customerLastName: {type: String, required: true, unique: true},
-    customerPetName: {type: String, required: true, unique: true},
-    customerEmail: {type: String, required:true, unique:true}
+    // customerId: { type: String, required: true, unique: true},
+    customerName: {type: String, required: true, unique: true},
+    // customerLastName: {type: String, required: true, unique: true},
+    // customerPetName: {type: String, required: true, unique: true},
+    email: {type: String, required:true, unique:true}
  });
 
  module.exports = mongoose.model('Customer', customerSchema);

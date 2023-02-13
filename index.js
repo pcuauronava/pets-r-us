@@ -11,13 +11,13 @@
 const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
+const router = express.Router();
 
-const customer = require("./models/customer");
+const Customer = require("./models/customer");
 
 const app = express();
 //this line contains the link to the database using the username and password
-const CONN = "mongodb+srv://web340_admin:aslanwebdev@bellevueuniversity.5jww2it.mongodb.net/test";
-
+const CONN = "mongodb+srv://web340_admin:aslan123@bellevueuniversity.5jww2it.mongodb.net/web340DB";
 
 
 // 1.- insert the new installed module express-ejs-layouts by clicking npm install express-ejs-layouts
@@ -25,7 +25,10 @@ const expressLayouts = require("express-ejs-layouts");
 
 //the next line defines the port as 3000
 const PORT = process.env.PORT || 3000;
-// const port = process.env.port || 3000;
+
+app.use(express.json());
+app.use(express.urlencoded());
+
 
 // const port = 3000;
 
@@ -73,36 +76,33 @@ app.get("/training", (req, res)=> {
 
 app.get("/registration", (req, res)=> {
      res.render("registration", { text: "Become part of the family"})});
-
-app.get("/registration-create", (req, res) => {
-        res.render("customer-create",
-         {
-            title: "Customer Form",
-            pageTitle: "Register New User"
+    
+app.post('/customers', (req, res, next) => {
+    console.log(req.body);
+    // let customerID = body.getElementById("customerName").value;
+        console.log(req.body.customerName);
+        // console.log(req.customerLastName);
+        // console.log(req.customerPetName);
+        console.log(req.body.email);
+        const newCustomer = new Customer({
+            customerName: req.body.customerName,
+            // customerLastName: req.customerLastName,
+            // customerPetName: req.customerPetName,
+            email:req.body.email
         });
-    });
+        // console.log(newCustomer);
     
-    app.post('/customers', (req, res, next) => {
-        console.log(req.body);
-        console.log(req.body.userName);
-        const newCustomer = new Customers({
-            name: req.body.userName
-        });
-    
-        console.log(newCustomer);
-    
-        Fruit.create(newFruit, function(err, fruit) {
+        Customer.create(newCustomer, function(err, customer) {
             if (err) {
                 console.log(err);
                 next(err);
             } else {
-                res.render('index', {
-                    title: 'FMS: Landing'
-                })
+                // alert does not work here!
+                // alert("New customer registered");
+                res.render("index");
             }
         })
     })
-    
     // Listen on Port 3000
 //the next line was included to display the port listening for the app
     app.listen(PORT, () => {
