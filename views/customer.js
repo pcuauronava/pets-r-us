@@ -4,12 +4,12 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 
-let customerSchema = new mongoose.Schema({
+let customerSchema = new Schema({
     customerId: {type: string, required: true, unique: true},
     email: {type: string, required:true, unique:true}
  });
 
- module.exports = mongoose.model('Customer', customerSchema);
+module.exports = mongoose.model('Customer', customerSchema);
 
 //step 3 web340_assign6.docx instructions by Krasso
 //make them unique and required use the keyword required and unique and

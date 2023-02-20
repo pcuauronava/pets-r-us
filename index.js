@@ -17,7 +17,8 @@ const Customer = require("./models/customer");
 
 const app = express();
 //this line contains the link to the database using the username and password
-const CONN = "mongodb+srv://web340_admin:aslan123@bellevueuniversity.5jww2it.mongodb.net/web340DB";
+// const CONN = "mongodb+srv://web340_admin:aslan123@bellevueuniversity.5jww2it.mongodb.net/web340DB";
+const CONN = "mongodb+srv://web340_admin:aslan123@bellevueuniversity.5jww2it.mongodb.net/web340DB?retryWrites=true&w=majority";
 
 
 // 1.- insert the new installed module express-ejs-layouts by clicking npm install express-ejs-layouts
@@ -69,7 +70,24 @@ app.get("/boarding", (req, res)=> {
     res.render("boarding", { text: "It will be treated like a King/Queen here!"})});
 
 app.get("/customer", (req, res)=> {
-    res.render("customer", { text: "List of customers"})});
+    // this line provides a handler to the errors it could find
+    // when we try to access the database
+    // and in the case no errors are found it will render
+    // the results of the retrieval of the information
+    // from the documents
+    Customer.find({}, function(err, customers) {
+        if(err){
+            console.log(err);
+            next(err);
+        }   else {
+                res.render("customer", {
+                    text: "List of Registered Users",
+                customers: customers
+                })
+            }
+        })
+    })
+
 
 app.get("/training", (req, res)=> {
     res.render("training", { text: "It best serves the treat"})});
@@ -77,33 +95,31 @@ app.get("/training", (req, res)=> {
 app.get("/registration", (req, res)=> {
      res.render("registration", { text: "Become part of the family"})});
     
-app.post('/customers', (req, res, next) => {
+app.post('/customer', (req, res, next) => {
     console.log(req.body);
     // let customerID = body.getElementById("customerName").value;
-        console.log(req.body.customerName);
-        // console.log(req.customerLastName);
-        // console.log(req.customerPetName);
-        console.log(req.body.email);
-        const newCustomer = new Customer({
-            customerName: req.body.customerName,
-            // customerLastName: req.customerLastName,
-            // customerPetName: req.customerPetName,
-            email:req.body.email
-        });
-        // console.log(newCustomer);
+    console.log(req.body.customerName);
+    // console.log(req.customerLastName);
+    // console.log(req.customerPetName);
+    console.log(req.body.email);
+    const newCustomer = new Customer({
+    customerName: req.body.customerName,
+    // customerLastName: req.customerLastName,
+    // customerPetName: req.customerPetName,
+    email:req.body.email
+    });
+    // console.log(newCustomer);
     
-        Customer.create(newCustomer, function(err, customer) {
-            if (err) {
-                console.log(err);
-                next(err);
+    Customer.create(newCustomer, function(err, customer) {
+        if (err) {
+            console.log(err);
+            next(err);
             } else {
-                // alert does not work here!
-                // alert("New customer registered");
                 res.render("index");
             }
         })
-    })
-    // Listen on Port 3000
+    });
+// Listen on Port 3000
 //the next line was included to display the port listening for the app
     app.listen(PORT, () => {
         console.log('Application started and listening on PORT: ' + PORT);

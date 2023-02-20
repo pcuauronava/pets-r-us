@@ -22,16 +22,55 @@
 </head>
 
 <body>
-    <h1>Under construction</h1>
-    <h2>
-        <%= text %>
-    </h2>
-    <a href="../">Home</a>
-    <br>
-    <img width="1024px" src="/images/under-construction-full-size.jpg">
-    <footer>
-        copyright 2023
-    </footer>
+    <div id="a" class="grid-container">
+        <div class="item1">
+            <h1><%- text %></h1>
+        </div>
+        <div class="item2">
+            <nav>
+                <h2>Menu</h2>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/grooming">Grooming</a></li>
+                    <li><a href="/appointment">Appointments</a></li>
+                    <li><a href="/boarding">Boarding</a></li>
+                    <li><a href="/customer">Customer List</a></li>
+                    <li><a href="/registration">Registration</a></li>
+                </ul>
+            </nav>
+
+        </div>
+        <div class="item3">
+            <h1>List of Customers</h1>
+            <% if(customers.length> 0){ %>
+                <table class="table">
+                    <tr>
+                        <th>UserName</th>
+                        <th>email</th>
+                    </tr>
+                    <tbody>
+                        <% customers.forEach(function(customer){ %>
+                            <tr>
+                                <td>
+                                    <%= customer.customerName %>
+                                </td>
+                                <td>
+                                    <%= customer.email %>
+                                </td>
+                            </tr>
+                            <% }) %>
+                    </tbody>
+                </table>
+                <% } else { %>
+                    <h2> customers have not been added to de MongoDB database. Try adding some!</h2>
+                    <% } %>
+        </div>
+        <div class="item4">
+            <div id="regUsers"></div>
+            <img src="/images/guest-list-icon.jpg" width="250" height="250" alt="appointment-pic">
+        </div>
+        <div class="item5"> <span>item5</span> </div>
+    </div>
 </body>
 
 
