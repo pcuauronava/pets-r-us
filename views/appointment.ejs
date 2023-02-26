@@ -11,6 +11,8 @@
     <div id="a" class="grid-container">
         <div class="item1">
             <h1>Appointments now Available</h1>
+            <br>
+            <%= text %>
         </div>
         <div class="item2">
             <nav>
@@ -50,7 +52,7 @@
                     <input type="text" name="email" id="email">
                     <br>
                     <select name="service" id="service" class="dropdown-menu">
-                        <% services.forEach((service))=> { %>
+                        <% services.forEach((service)=> { %>
                             <option value="'<%= service.value %>'">
                                 <%= service.text %>
                             </option>

@@ -62,21 +62,20 @@ app.get("", (req, res)=> {
     res.render("index");});
     // 3.- modified this: to the above example res.render("index", { text: "Patrick is testing this landing page"})});
 
-app.get("/appointment", (req, res) => {
-    res.render("appointment")
-    })
+// app.get("/appointment", (req, res) => {
+//     res.render("appointment")
+//     });
     
 app.get("/appointments", ( req, res) => {
     let jsonFile = fs.readFileSync('./public/data/services.json');
     let services = JSON.parse(jsonFile);
     console.log(services);
-
     res.render("appointment", {
         text: "Make an appointment today",
         services: services});
     });
 
-    app.post('/appointments', (req, res, next) => {
+    app.post('/appointment', (req, res, next) => {
         const newAppointment = new Appointment({
             userName: req.body.userName,
             firstName: req.body.firstName,
