@@ -1,3 +1,13 @@
+/*
+===========================================
+; Title: customer.js
+; Author: Professor Krasso
+; Date: 02 23 2023
+; Modified by: Patrick Cuauro
+; Description: Customer mongoose Schema file.
+===========================================
+*/
+
 //inserted based on the example of the WEB340 repository mongoose model
 
 const mongoose = require("mongoose");
@@ -5,8 +15,8 @@ const Schema = mongoose.Schema;
 
 
 let customerSchema = new Schema({
-    customerId: {type: string, required: true, unique: true},
-    email: {type: string, required:true, unique:true}
+    customerId: {type: String, required: true, unique: true},
+    email: {type: String, required:true, unique:true}
  });
 
 module.exports = mongoose.model('Customer', customerSchema);

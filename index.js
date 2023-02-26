@@ -12,9 +12,10 @@ const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
 const router = express.Router();
+const fs = require("fs");
 
-const Customer = require("./models/customer");
-
+const Customer = require("./models/customer.js");
+const Appointment = require("./models/appointments.js");
 const app = express();
 //this line contains the link to the database using the username and password
 // const CONN = "mongodb+srv://web340_admin:aslan123@bellevueuniversity.5jww2it.mongodb.net/web340DB";
@@ -24,11 +25,12 @@ const CONN = "mongodb+srv://web340_admin:aslan123@bellevueuniversity.5jww2it.mon
 // 1.- insert the new installed module express-ejs-layouts by clicking npm install express-ejs-layouts
 const expressLayouts = require("express-ejs-layouts");
 
+
 //the next line defines the port as 3000
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
-app.use(express.urlencoded());
+app.use(express.urlencoded({ extended:true }));
 
 
 // const port = 3000;
@@ -60,14 +62,44 @@ app.get("", (req, res)=> {
     res.render("index");});
     // 3.- modified this: to the above example res.render("index", { text: "Patrick is testing this landing page"})});
 
-app.get("/grooming", (req, res)=> {
-    res.render("grooming", { text: "This is the Grooming page"})});
+app.get("/appointment", (req, res) => {
+    res.render("appointment")
+    })
     
-app.get("/appointment", (req, res)=> {
-    res.render("appointment", { text: "Schedule your Appointment now!"})});
+app.get("/appointments", ( req, res) => {
+    let jsonFile = fs.readFileSync('./public/data/services.json');
+    let services = JSON.parse(jsonFile);
+    console.log(services);
 
+    res.render("appointment", {
+        text: "Make an appointment today",
+        services: services});
+    });
+
+    app.post('/appointments', (req, res, next) => {
+        const newAppointment = new Appointment({
+            userName: req.body.userName,
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            email: req.body.email,
+            service: req.body.service
+        });
+        console.log(newAppointment);
+        Appointment.create(newAppointment, function (err, appointment) {
+            if (err) {
+                console.log(err);
+                next(err);
+            } else {
+                res.render('index');
+            }
+        });
+    });
+    
 app.get("/boarding", (req, res)=> {
     res.render("boarding", { text: "It will be treated like a King/Queen here!"})});
+
+app.get("/grooming", (req, res)=> {
+    res.render("grooming", { text: "This is the Grooming page"})});
 
 app.get("/customer", (req, res)=> {
     // this line provides a handler to the errors it could find

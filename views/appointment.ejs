@@ -26,41 +26,39 @@
             </nav>
         </div>
         <div class="item3">
-            <div class="form">
+            <form action="/appointment" method="post">
                 <!-- this div was divided in two to help readability otherwise the names will be misaligned -->
                 <!-- remember to verify the css file -->
                 <div class="titles">
-                    <label for="pet-owner-name">Introduce the owners name:</label>
+                    <label for="userName">Introduce the username:</label>
                     <br>
-                    <label for="pet-kind">Select your kind of pet:</label>
+                    <label for="firstName">Introduce the first name:</label>
                     <br>
-                    <label for="pet-name">Introduce the pet's name:</label>
+                    <label for="lastName">Introduce the last name:</label>
                     <br>
-                    <label for="appointment-time">Select the date and time:</label>
+                    <label for="email">email:</label>
                     <br>
-                    <label for="service-selection">Select the service needed:</label>
+                    <label for="service">Select the service needed:</label>
                 </div>
                 <div class="selections">
-                    <input type="text" name="pet-owner-name" id="pet-owner-name">
+                    <input type="text" name="userName" id="userName">
                     <br>
-
-
-                    <select type="dropdown-menu" name="pet-kind-selection">
-                        <option value="dog">Dog</option>
-                        <option value="cat">Cat</option>
-                    </select>
+                    <input type="text" name="firstName" id="firstName">
                     <br>
-                    <input type="text" name="pet-name" id="pet-name">
+                    <input type="text" name="lastName" id="lastName">
                     <br>
-                    <input type="datetime-local" name="appointment-time" id="appointment-time">
+                    <input type="text" name="email" id="email">
                     <br>
-                    <select type="dropdown-menu" name="service-selection">
-                        <option value="grooming">Grooming</option>
-                        <option value="training">Training</option>
+                    <select name="service" id="service" class="dropdown-menu">
+                        <% services.forEach((service))=> { %>
+                            <option value="'<%= service.value %>'">
+                                <%= service.text %>
+                            </option>
+                            <% }) %>
                     </select>
                 </div>
-                <button class="btn" id="appointment-check">Submit</button>
-            </div>
+                <input type="submit" value="Submit Appointment" class="btn">Submit</button>
+            </form>
         </div>
         <div class="item4">
             <img src="/images/appointment-medium.jpg" width="250" height="250" alt="appointment-pic">

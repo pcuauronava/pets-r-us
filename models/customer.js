@@ -1,3 +1,12 @@
+/*
+===========================================
+; Title: customer.js
+; Author: Professor Krasso
+; Date: 02 17 2023
+; Modified by: Patrick Cuauro
+; Description: Customer mongoose Schema file.
+===========================================
+*/
 //inserted based on the example of the WEB340 repository mongoose model
 
 const mongoose = require('mongoose');
