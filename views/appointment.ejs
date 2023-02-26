@@ -31,35 +31,29 @@
             <form action="/appointment" method="post">
                 <!-- this div was divided in two to help readability otherwise the names will be misaligned -->
                 <!-- remember to verify the css file -->
-                <div class="titles">
-                    <label for="userName">Introduce the username:</label>
-                    <br>
-                    <label for="firstName">Introduce the first name:</label>
-                    <br>
-                    <label for="lastName">Introduce the last name:</label>
-                    <br>
-                    <label for="email">email:</label>
-                    <br>
-                    <label for="service">Select the service needed:</label>
-                </div>
-                <div class="selections">
-                    <input type="text" name="userName" id="userName">
-                    <br>
-                    <input type="text" name="firstName" id="firstName">
-                    <br>
-                    <input type="text" name="lastName" id="lastName">
-                    <br>
-                    <input type="text" name="email" id="email">
-                    <br>
-                    <select name="service" id="service" class="dropdown-menu">
-                        <% services.forEach((service)=> { %>
-                            <option value="'<%= service.value %>'">
-                                <%= service.text %>
-                            </option>
-                            <% }) %>
-                    </select>
-                </div>
-                <input type="submit" value="Submit Appointment" class="btn">Submit</button>
+                <legend>Contact details</legend>
+                <label for="userName">Introduce the username:</label>
+                <input type="text" name="userName" id="userName">
+                <br>
+                <label for="firstName">Introduce the first name:</label>
+                <input type="text" name="firstName" id="firstName">
+                <br>
+                <label for="lastName">Introduce the last name:</label>
+                <input type="text" name="lastName" id="lastName">
+                <br>
+                <label for="email">email:</label>
+                <input type="text" name="email" id="email">
+                <br>
+                <label for="service">Select the service needed:</label>
+                <select name="service" id="service" class="dropdown-menu">
+                    <% services.forEach((service)=> { %>
+                        <option value="'<%= service.value %>'">
+                            <%= service.text %>
+                        </option>
+                        <% }) %>
+                </select>
+                <br>
+                <input type="submit" value="Submit Appointment" class="btn"></button>
             </form>
         </div>
         <div class="item4">

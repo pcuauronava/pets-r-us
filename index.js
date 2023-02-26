@@ -67,15 +67,20 @@ app.get("", (req, res)=> {
 //     });
     
 app.get("/appointments", ( req, res) => {
+    //this line uses the filesystem to read the information in the json file in the data folder
     let jsonFile = fs.readFileSync('./public/data/services.json');
+    //this variable is using this information to be used later in the form
     let services = JSON.parse(jsonFile);
     console.log(services);
+    //this line renders the page passing the information from the services
+    //previously read from the JSON extension file
     res.render("appointment", {
         text: "Make an appointment today",
         services: services});
     });
-
+    //this line is going to pass all the information retrieved from the form to the database
     app.post('/appointment', (req, res, next) => {
+        //this line makes use of the appointment model of the mongoose module
         const newAppointment = new Appointment({
             userName: req.body.userName,
             firstName: req.body.firstName,
@@ -84,11 +89,13 @@ app.get("/appointments", ( req, res) => {
             service: req.body.service
         });
         console.log(newAppointment);
+        //this verifies if theres is an error and returns it
         Appointment.create(newAppointment, function (err, appointment) {
             if (err) {
                 console.log(err);
                 next(err);
             } else {
+                //if there's no error found it returns the index page
                 res.render('index');
             }
         });

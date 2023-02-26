@@ -73,13 +73,17 @@ li {
   background-color: rgb(186 12 12 / 80%);
 }
 .form {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  padding: 10px;
-  text-align: justify;
+  margin: 10px;
+  padding-bottom: 10px;
+  width: 360px;
 }
 .form .titles {
-  padding: 10px;
+  float: left;
+  width: 300px;
+  text-align: right;
+  padding-right: 10px;
+}
+.form .submit {
   text-align: right;
 }
 .form .selections {
@@ -88,4 +92,19 @@ li {
 .btn {
   text-align: center;
   border-style: solid 3px;
+}
+#design-form {
+  border-bottom: 1px solid #efefef;
+  margin: 10px;
+  padding-bottom: 10px;
+  width: 360px;
+}
+#design-form .title {
+  float: left;
+  width: 300px;
+  text-align: right;
+  padding-right: 10px;
+}
+#design-form .submit {
+  text-align: right;
 }
