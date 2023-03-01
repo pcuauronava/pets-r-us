@@ -24,6 +24,7 @@ const CONN = "mongodb+srv://web340_admin:aslan123@bellevueuniversity.5jww2it.mon
 
 // 1.- insert the new installed module express-ejs-layouts by clicking npm install express-ejs-layouts
 const expressLayouts = require("express-ejs-layouts");
+const appointments = require("./models/appointments.js");
 
 
 //the next line defines the port as 3000
@@ -100,7 +101,20 @@ app.get("/appointments", ( req, res) => {
             }
         });
     });
-    
+app.get("/my-appointments",(req, res)=>{
+    res.render("my-appointments", { text: "Check your future appointments"})});
+
+app.get("/api/appointments/:email", async(req,res,next)=>{
+    Appointment.find({'email': req.params.email}, function(err, orders){
+        if(err){
+            console.log(err);
+            next(err);
+        } else {
+            res.json(appointments);
+        }
+    });
+});
+
 app.get("/boarding", (req, res)=> {
     res.render("boarding", { text: "It will be treated like a King/Queen here!"})});
 

@@ -1,0 +1,78 @@
+<!--
+    ==============================================
+    ;   Title: my-appointment.ejs
+    ;   Author: Patrick Cuauro
+    ;   Date: 02 28 2023
+    ;   Modified by: Patrick Cuauro
+    ;   Description: Sub page from Pet-R-Us
+    ==============================================
+    -->
+<div id="container">
+    <div id="a" class="grid-container">
+        <div class="item1">
+            <h1>My Appointments</h1>
+            <br>
+            <%= text %>
+        </div>
+        <div class="item2">
+            <nav>
+                <h2>Menu</h2>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/grooming">Grooming</a></li>
+                    <li><a href="/training">Training</a></li>
+                    <li><a href="/boarding">Boarding</a></li>
+                    <li><a href="/customer">Customer List</a></li>
+                    <li><a href="/registration">Registration</a></li>
+                    <li><a href="/appointments">Appointments</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="item3">
+            <div class="card center-div">
+                <div class="card-title">Appointments Lookup Form</div>
+
+                <div class="card-content">
+                    <div class="form full-width">
+
+                        <div class="form-field">
+                            <label for="email">email</label><br />
+                            <input type="text" class="input full-width" name="email" id="email" required>
+                        </div>
+
+                        <div class="form-field">
+                            <input type="submit" value="Search" id="search" class="btn btn-primary full-width">
+                        </div>
+                    </div>
+
+                    <div class="center-div" id="appointments"></div>
+                </div>
+            </div>
+        </div>
+        <div class="item4">
+            <img src="/images/look-up-list.jpg" width="300" height="300" alt="look-up list">
+        </div>
+        <div class="item5">
+        </div>
+    </div>
+</div>
+<script>
+
+    document.getElementById('search').onclick = function () {
+        const firstName = document.getElementById('email').value;
+
+        fetch('/api/appointments/' + email)
+            .then(res => res.json())
+            .then(data => {
+                let tableString = `<br /><h4 style="font-size: 32px; text-align: center; padding-bottom: 10px; font-weight: lighter">My Orders</h4><table id="orders" style="width: 100%;" class="table full-width"><tr><th>First name</th><th>Last name</th><th>Payment</th></tr>`;
+
+                for (let appointment of data) {
+                    tableString += `<tr>td>${appointment.userName}</td><td>${appointment.firstName}</td><td>${appointment.lastName}</td><td>${appointment.service}</td></tr>`;
+                }
+
+                tableString += `</table>`;
+
+                document.getElementById('appointments').innerHTML = tableString;
+            });
+    }
+</script>
