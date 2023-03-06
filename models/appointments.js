@@ -12,11 +12,12 @@ const Schema = mongoose.Schema;
  
 const appointmentSchema = new Schema({
     // don't forget String is spelled with Capital S
-    userName: { type: String, required:true, unique: true },
-    firstName: { type: String, required:true, unique: true },
-    lastName: { type: String, required:true, unique: true  },
-    email: { type: String, required:true, unique: true  },
-    service: { type: String, required:true, unique: true  }
+    // in this case the values can not be unique because is an appointment!
+    userName: { type: String, required:true, },
+    firstName: { type: String, required:true },
+    lastName: { type: String, required:true  },
+    email: { type: String, required:true },
+    service: { type: String, required:true}
 });
 
 module.exports = mongoose.model('Appointment', appointmentSchema);

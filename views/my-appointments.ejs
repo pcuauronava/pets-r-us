@@ -51,12 +51,12 @@
         const email = document.getElementById('email').value;
 
         fetch('/api/appointments/' + email)
-            .then(res => res.json())
+            .then(res => res.json(appointments))
             .then(data => {
                 let tableString = `<br /><h4 style="font-size: 32px; text-align: center; padding-bottom: 10px; font-weight: lighter">My Appointments</h4><table id="orders" style="width: 100%;" class="table full-width"><tr><th>Username</th><th>First name</th><th>Last name</th><th>Email</th><th>Service</th></tr>`;
 
                 for (let appointment of data) {
-                    tableString += `<tr><td>${appointment.userName}</td><td>${appointment.firstName}</td><td>${appointment.lastName}</td><td>${appointment.service}</td></tr>`;
+                    tableString += `<tr><td>${appointment.userName}</td><td>${appointment.firstName}</td><td>${appointment.lastName}</td><td>${appointment.email}</td><td>${appointment.service}</td></tr>`;
                 }
 
                 tableString += `</table>`;

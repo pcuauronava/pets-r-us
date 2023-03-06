@@ -105,12 +105,12 @@ app.get("/my-appointments",(req, res)=>{
     res.render("my-appointments", { text: "Check your future appointments"})});
 
 app.get("/api/appointments/:email", async(req,res,next)=>{
-    Appointment.find({'email': req.params.email}, function(err, orders){
+    Appointment.find({'email': req.params.email}, function(err, appointment){
         if(err){
             console.log(err);
             next(err);
         } else {
-            res.json(appointments);
+            res.json(appointment);
         }
     });
 });

@@ -1,0 +1,14 @@
+GET http://localhost:3000/appointments
+
+###
+
+GET http://localhost:3000/appointment/Patrickcuauro@gmail.com
+
+###
+
+POST http://localhost:3000/appointments
+Content-Type: application/application/json
+{
+    "name": "Pat",
+    "subscribedToChannel":"nodejs"
+}
