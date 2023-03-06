@@ -138,14 +138,14 @@ app.get("/customer", (req, res)=> {
                 })
             }
         })
-    })
-
-
+    });
 app.get("/training", (req, res)=> {
-    res.render("training", { text: "It best serves the treat"})});
+    res.render("training", { text: "It best serves the treat"})
+});
 
 app.get("/registration", (req, res)=> {
-     res.render("registration", { text: "Become part of the family"})});
+     res.render("registration", { text: "Become part of the family"})
+    });
     
 app.post('/customer', (req, res, next) => {
     console.log(req.body);
@@ -173,8 +173,20 @@ app.post('/customer', (req, res, next) => {
     });
 // Listen on Port 3000
 //the next line was included to display the port listening for the app
+
+// function getAppointment(req, res, next) {
+//     try {
+//         appointment = Appointments.findByEmail(req.params.email)
+//         if (appointment == null) {
+//             return res.status(404).json({ message: 'Cannot find Appointment' })
+//         }
+//     } catch (err) {
+//         return res.status(500).json({ message: err.message})
+//     }
+//     res.appointment = appointment
+//     next()
+// }
     app.listen(PORT, () => {
         console.log('Application started and listening on PORT: ' + PORT);
     
         console.log('\n  Press Ctrl+C to stop the server...');});
-// app.listen( PORT,()=> console.info(`Listening on port ${PORT}`));

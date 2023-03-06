@@ -15,17 +15,7 @@
             <%= text %>
         </div>
         <div class="item2">
-            <nav>
-                <h2>Menu</h2>
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/grooming">Grooming</a></li>
-                    <li><a href="/training">Training</a></li>
-                    <li><a href="/boarding">Boarding</a></li>
-                    <li><a href="/customer">Customer List</a></li>
-                    <li><a href="/registration">Registration</a></li>
-                </ul>
-            </nav>
+            <%- include('./layouts/sidebar.ejs') %>
         </div>
         <div class="item3">
             <form action="/appointment" method="post">

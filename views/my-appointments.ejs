@@ -15,18 +15,7 @@
             <%= text %>
         </div>
         <div class="item2">
-            <nav>
-                <h2>Menu</h2>
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/grooming">Grooming</a></li>
-                    <li><a href="/training">Training</a></li>
-                    <li><a href="/boarding">Boarding</a></li>
-                    <li><a href="/customer">Customer List</a></li>
-                    <li><a href="/registration">Registration</a></li>
-                    <li><a href="/appointments">Appointments</a></li>
-                </ul>
-            </nav>
+            <%- include('./layouts/sidebar.ejs') %>
         </div>
         <div class="item3">
             <div class="card center-div">
@@ -59,15 +48,15 @@
 <script>
 
     document.getElementById('search').onclick = function () {
-        const firstName = document.getElementById('email').value;
+        const email = document.getElementById('email').value;
 
         fetch('/api/appointments/' + email)
             .then(res => res.json())
             .then(data => {
-                let tableString = `<br /><h4 style="font-size: 32px; text-align: center; padding-bottom: 10px; font-weight: lighter">My Orders</h4><table id="orders" style="width: 100%;" class="table full-width"><tr><th>First name</th><th>Last name</th><th>Payment</th></tr>`;
+                let tableString = `<br /><h4 style="font-size: 32px; text-align: center; padding-bottom: 10px; font-weight: lighter">My Appointments</h4><table id="orders" style="width: 100%;" class="table full-width"><tr><th>Username</th><th>First name</th><th>Last name</th><th>Email</th><th>Service</th></tr>`;
 
                 for (let appointment of data) {
-                    tableString += `<tr>td>${appointment.userName}</td><td>${appointment.firstName}</td><td>${appointment.lastName}</td><td>${appointment.service}</td></tr>`;
+                    tableString += `<tr><td>${appointment.userName}</td><td>${appointment.firstName}</td><td>${appointment.lastName}</td><td>${appointment.service}</td></tr>`;
                 }
 
                 tableString += `</table>`;

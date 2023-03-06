@@ -14,19 +14,7 @@
             <h1>Welcome to your Pet's paradise!</h1>
         </div>
         <div class="item2">
-            <nav>
-                <h2>Menu</h2>
-                <ul>
-                    <li><a href="/grooming">Grooming</a></li>
-                    <li><a href="/appointments">Appointments</a></li>
-                    <li><a href="/training">Training</a></li>
-                    <li><a href="/boarding">Boarding</a></li>
-                    <li><a href="/customer">Customer List</a></li>
-                    <li><a href="/registration">Registration</a></li>
-                    <li><a href="/my-appointments">My Appointments</a></li>
-                </ul>
-            </nav>
-
+            <%- include('./layouts/sidebar.ejs') %>
         </div>
         <div class="item3">
             <img src="/images/pet-1.jpg" alt="mini-doberman" width="500" height="335">
@@ -102,3 +90,4 @@
         </div>
     </div>
 </div>
+<%- include('./layouts/_footer.ejs') %>
